@@ -1,182 +1,306 @@
 # IMVU Extractor
 
-IMVU Extractor is a modern, open-source desktop application designed to be the ultimate tool for managing and extracting IMVU products. Built with React, Electron, and Python, it provides a seamless experience for downloading avatars, products, and textures from IMVU.
+**IMVU Extractor** é uma aplicação desktop premium para extração e gerenciamento de produtos IMVU. Desenvolvida com React, Electron e Python, oferece uma experiência completa e profissional para download de avatares, produtos e texturas do IMVU.
 
-## ✨ Features
+> ⚠️ **Projeto Comercial**: Este é um software premium que requer licença ativa. O GitHub é usado apenas para atualizações automáticas e documentação.
 
-- **🎮 Product Management**: Add and organize your favorite IMVU products in a personal library
-- **📱 Modern Interface**: Beautiful, intuitive UI built with React and Tailwind CSS
-- **🌍 Multi-language Support**: Available in English and Portuguese
-- **⚡ Fast Downloads**: Optimized download system with progress tracking
-- **🎨 Avatar Extraction**: Extract complete avatars with all accessories and textures
-- **📁 Smart Organization**: Automatic folder creation and file organization
-- **🔄 Batch Processing**: Download multiple products simultaneously
-- **🎯 Direct API Integration**: Real-time data synchronization with IMVU servers
-- **🖥️ Cross-platform**: Works on Windows, macOS, and Linux
-- **🔒 Secure**: No data collection, everything runs locally
+## 🎯 Sobre o Projeto
 
-## 🚀 Quick Start
+O IMVU Extractor é uma solução comercial completa que combina:
 
-### Prerequisites
+- **🖥️ Aplicação Desktop**: Interface moderna construída com React e Electron
+- **🌐 Plataforma Web**: Sistema de autenticação e gerenciamento de licenças
+- **🐍 Backend Python**: API robusta para comunicação com servidores IMVU
+- **💳 Sistema de Pagamentos**: Integração com Stripe para planos de assinatura
 
-- **Node.js** (v16 or higher)
-- **Python** (v3.8 or higher)
-- **Git**
+## ✨ Funcionalidades Principais
 
-### Installation
+### 🎮 Extração de Produtos
+- **Download de Avatares Completos**: Extração de avatares com todos os acessórios
+- **Produtos Individuais**: Download de roupas, acessórios e móveis
+- **Texturas e Meshes**: Extração de arquivos 3D e texturas
+- **Processamento em Lote**: Download múltiplo simultâneo
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/imvu-extractor.git
-   cd imvu-extractor
-   ```
+### 📱 Interface Moderna
+- **Design Responsivo**: Interface adaptável e intuitiva
+- **Multi-idioma**: Suporte completo em Português e Inglês
+- **Tema Escuro**: Interface otimizada para uso prolongado
+- **Progresso em Tempo Real**: Acompanhamento detalhado de downloads
 
-2. **Install dependencies**
-   ```bash
-   # Install Node.js dependencies
-   npm install
-   
-   # Install Python dependencies
-   pip install -r requirements.txt
-   ```
+### 🔒 Sistema de Licenças
+- **Autenticação Segura**: Login via Discord integrado
+- **Planos Flexíveis**: Mensal, Anual e Vitalício
+- **Verificação Online**: Validação automática de licenças ativas
+- **Sincronização**: Dados sincronizados entre web e desktop
 
-3. **Setup configuration**
-   ```bash
-   # Copy configuration template
-   cp config.py.template config.py
-   cp auth_config.json.template auth_config.json
-   ```
+## 🏗️ Arquitetura do Sistema
 
-4. **Configure your IMVU credentials**
-   - Edit `config.py` with your settings
-   - Add your IMVU session data to `auth_config.json`
+### Componentes Principais
 
-5. **Run the application**
-   ```bash
-   # Development mode
-   npm run dev
-   
-   # Or run components separately
-   npm start          # React frontend
-   python imvu_api.py # Python backend
-   npm run electron   # Electron wrapper
-   ```
+1. **Aplicação Desktop** (`/src`)
+   - Interface React com Tailwind CSS
+   - Integração Electron para funcionalidades nativas
+   - Sistema de store com Zustand
 
-## 🛠️ Build from Source
+2. **Plataforma Web** (`/Site`)
+   - Next.js 14 com autenticação NextAuth
+   - Dashboard de usuário e gerenciamento
+   - Sistema de pagamentos Stripe
 
-### Development Setup
+3. **API Python** (`imvu_api.py`)
+   - Comunicação com APIs IMVU
+   - Processamento de produtos e downloads
+   - Sistema de autenticação e cookies
 
-```bash
-# Clone and setup
-git clone https://github.com/yourusername/imvu-extractor.git
-cd imvu-extractor
-npm install
-pip install -r requirements.txt
+4. **Sistema de Configuração**
+   - Configurações criptografadas
+   - Gerenciamento seguro de credenciais
+   - Templates de configuração
 
-# Run in development mode
-npm run dev
+## 🚀 Como Funciona
+
+### Integração Site + Extrator
+
+O IMVU Extractor funciona através de uma arquitetura integrada que combina:
+
+#### 🌐 **Plataforma Web (Site)**
+- **Autenticação Discord**: Login seguro via OAuth2
+- **Gerenciamento de Assinaturas**: Planos Gratuito, Mensal, Anual e Vitalício
+- **Processamento de Pagamentos**: Integração completa com Stripe
+- **Dashboard do Usuário**: Controle de licenças e configurações
+- **Sistema de Verificação**: Validação em tempo real de status de assinatura
+
+#### 🖥️ **Aplicação Desktop (Extrator)**
+- **Verificação de Licença**: Comunicação automática com o Site para validar permissões
+- **Sincronização de Dados**: Configurações e preferências sincronizadas
+- **Download Seguro**: Acesso aos recursos baseado no plano ativo
+- **Interface Responsiva**: Experiência otimizada para cada tipo de usuário
+
+### Fluxo de Funcionamento
+
+#### 1. **Registro e Autenticação**
+```
+Usuário → Discord OAuth → Site → Criação de Conta → Dashboard
 ```
 
-### Building for Production
-
-```bash
-# Build React app
-npm run build
-
-# Create Electron executable
-npm run electron-pack
-
-# Create installer
-npm run dist
+#### 2. **Aquisição de Licença**
+```
+Dashboard → Escolha do Plano → Stripe Payment → Ativação Automática
 ```
 
-### Available Scripts
+#### 3. **Uso do Extrator**
+```
+Download do App → Login Automático → Verificação Online → Acesso Liberado
+```
 
-- `npm start` - Run React development server
-- `npm run build` - Build React app for production
-- `npm run electron` - Run Electron app
-- `npm run dev` - Run full development environment
-- `npm run dist` - Create production build and installer
-- `python imvu_api.py` - Run Python API server
+#### 4. **Verificação Contínua**
+```
+Extrator ↔ Site API ↔ Banco de Dados → Status em Tempo Real
+```
 
-## 📖 Usage
+### Para Usuários
 
-1. **Launch the application**
-2. **Configure your IMVU credentials** in the settings
-3. **Search for products** using the product ID or URL
-4. **Select download options** (textures, meshes, etc.)
-5. **Choose destination folder**
-6. **Start downloading** and track progress in real-time
+1. **Acesso à Plataforma**: Visite o site oficial e crie sua conta
+2. **Escolha do Plano**: Selecione entre os planos disponíveis
+3. **Download da Aplicação**: Baixe o executável após a compra
+4. **Configuração**: Configure suas credenciais IMVU
+5. **Uso**: Comece a extrair produtos imediatamente
 
-## 🤝 Contributing
+### Hierarquia de Recursos por Plano
 
-We welcome contributions! Here's how you can help:
+#### 🆓 **Plano Gratuito**
+- ✅ Extração básica limitada (5 produtos/dia)
+- ✅ Interface completa
+- ❌ Download em lote
+- ❌ Suporte prioritário
 
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Commit your changes** (`git commit -m 'Add amazing feature'`)
-6. **Push to the branch** (`git push origin feature/amazing-feature`)
-7. **Open a Pull Request**
+#### 💙 **Plano Mensal**
+- ✅ Extração ilimitada
+- ✅ Download em lote
+- ✅ Todas as funcionalidades
+- ✅ Suporte padrão
 
-### Development Guidelines
+#### ❤️ **Plano Anual**
+- ✅ Todos os recursos do Mensal
+- ✅ Desconto significativo
+- ✅ Suporte prioritário
+- ✅ Acesso antecipado a novos recursos
 
-- Follow the existing code style
-- Add tests for new features
-- Update documentation as needed
-- Ensure all tests pass before submitting
+#### ⭐ **Plano Vitalício**
+- ✅ Acesso permanente
+- ✅ Todos os recursos futuros
+- ✅ Suporte VIP
+- ✅ Participação em beta testing
 
-## 📋 System Requirements
+### Planos Disponíveis
 
-### Minimum Requirements
-- **OS**: Windows 10, macOS 10.14, or Linux (Ubuntu 18.04+)
+- **🆓 Gratuito**: Funcionalidades básicas limitadas
+- **💙 Mensal**: Acesso completo por 30 dias
+- **❤️ Anual**: Acesso completo por 12 meses (desconto)
+- **⭐ Vitalício**: Acesso permanente (melhor valor)
+
+## 🔄 Sistema de Atualizações
+
+### Distribuição via GitHub
+
+O IMVU Extractor utiliza o GitHub como plataforma de distribuição segura para atualizações:
+
+#### 📦 **GitHub Releases**
+- **Distribuição Oficial**: Todas as versões são publicadas via GitHub Releases
+- **Assinatura Digital**: Executáveis assinados digitalmente para garantir autenticidade
+- **Versionamento Semântico**: Seguimos o padrão SemVer (Major.Minor.Patch)
+- **Changelog Detalhado**: Registro completo de mudanças em cada versão
+
+#### 🔄 **Atualizações Automáticas**
+- **Verificação ao Iniciar**: O aplicativo verifica automaticamente por novas versões
+- **Download Seguro**: Atualizações baixadas diretamente do GitHub
+- **Instalação Silenciosa**: Processo de atualização sem interrupção do usuário
+- **Rollback Automático**: Reversão automática em caso de falha na atualização
+
+#### 🛡️ **Segurança das Atualizações**
+- **Verificação de Integridade**: Checksums SHA-256 para validar downloads
+- **Autenticação de Origem**: Verificação de que a atualização vem do repositório oficial
+- **Licença Ativa**: Atualizações disponíveis apenas para usuários com licença válida
+- **Backup Automático**: Backup da versão anterior antes da atualização
+
+### Processo de Atualização
+
+#### 1. **Detecção de Nova Versão**
+```
+App Startup → GitHub API Check → Compare Versions → Notify User
+```
+
+#### 2. **Download da Atualização**
+```
+User Consent → GitHub Release Download → Verify Signature → Prepare Install
+```
+
+#### 3. **Instalação**
+```
+Backup Current → Install Update → Verify Installation → Restart App
+```
+
+#### 4. **Verificação Pós-Atualização**
+```
+App Restart → License Check → Feature Validation → Update Complete
+```
+
+### Controle de Versão
+
+#### 🏷️ **Tipos de Release**
+- **🚀 Major (X.0.0)**: Grandes mudanças, novas funcionalidades principais
+- **✨ Minor (X.Y.0)**: Novas funcionalidades, melhorias significativas
+- **🐛 Patch (X.Y.Z)**: Correções de bugs, melhorias menores
+- **🔥 Hotfix**: Correções críticas de segurança (liberação imediata)
+
+#### 📋 **Canais de Atualização**
+- **🟢 Stable**: Versão estável para todos os usuários
+- **🟡 Beta**: Versão de teste para usuários Premium/Vitalício
+- **🔴 Alpha**: Versão de desenvolvimento (apenas desenvolvedores)
+
+### Configurações de Atualização
+
+#### ⚙️ **Opções do Usuário**
+- **Automática**: Baixa e instala automaticamente (padrão)
+- **Notificar**: Apenas notifica sobre novas versões
+- **Manual**: Usuário controla completamente o processo
+- **Beta Channel**: Acesso antecipado a versões beta (Premium+)
+
+#### 🔧 **Configurações Avançadas**
+- **Horário de Verificação**: Personalizar quando verificar atualizações
+- **Bandwidth Limit**: Limitar velocidade de download
+- **Proxy Support**: Suporte para conexões via proxy
+- **Offline Mode**: Funcionalidade limitada sem conexão
+
+### Compatibilidade e Rollback
+
+#### 🔄 **Compatibilidade de Versões**
+- **Forward Compatibility**: Versões antigas funcionam com dados novos
+- **Backward Compatibility**: Versões novas suportam dados antigos
+- **Migration Scripts**: Scripts automáticos para migração de dados
+- **Configuration Sync**: Sincronização de configurações entre versões
+
+#### ⏪ **Sistema de Rollback**
+- **Automatic Rollback**: Reversão automática em caso de falha
+- **Manual Rollback**: Opção de reverter manualmente via interface
+- **Version History**: Histórico das últimas 3 versões instaladas
+- **Data Preservation**: Preservação de dados do usuário durante rollback
+
+## 📋 Requisitos do Sistema
+
+### Mínimos
+- **SO**: Windows 10 (64-bit)
 - **RAM**: 4GB
-- **Storage**: 500MB free space
-- **Internet**: Stable connection required
+- **Armazenamento**: 500MB livres
+- **Internet**: Conexão estável para verificação de licença
 
-### Recommended
-- **OS**: Windows 11, macOS 12+, or Linux (Ubuntu 20.04+)
-- **RAM**: 8GB or more
-- **Storage**: 2GB free space
-- **Internet**: High-speed broadband
+### Recomendados
+- **SO**: Windows 11 (64-bit)
+- **RAM**: 8GB ou superior
+- **Armazenamento**: 2GB livres
+- **Internet**: Banda larga para downloads rápidos
 
-## 🐛 Troubleshooting
+## 🛡️ Segurança e Privacidade
 
-### Common Issues
+### Proteção de Dados
+- **Criptografia**: Configurações e dados sensíveis criptografados
+- **Autenticação Segura**: OAuth2 via Discord
+- **Verificação de Licença**: Validação online sem exposição de dados
+- **Logs Locais**: Processamento local sem envio de dados pessoais
 
-**Application won't start**
-- Ensure Node.js and Python are properly installed
-- Check that all dependencies are installed (`npm install` and `pip install -r requirements.txt`)
+### Conformidade
+- **LGPD**: Conformidade com Lei Geral de Proteção de Dados
+- **Stripe**: Pagamentos processados com segurança PCI DSS
+- **Discord**: Autenticação via OAuth2 oficial
 
-**Download failures**
-- Verify your IMVU credentials are correct
-- Check your internet connection
-- Ensure the product ID is valid
+## 📞 Suporte e Comunidade
 
-**Permission errors**
-- Run as administrator (Windows) or with sudo (Linux/macOS)
-- Check folder permissions for the download directory
+### Canais de Suporte
+- **📧 Email**: Suporte técnico via email
+- **💬 Discord**: Servidor oficial com comunidade ativa
+- **📚 Documentação**: Guias completos e tutoriais
+- **🎥 Vídeos**: Tutoriais em vídeo no YouTube
 
-## 📄 License
+### Recursos Disponíveis
+- **Base de Conhecimento**: Artigos e soluções
+- **FAQ**: Perguntas frequentes
+- **Tutoriais**: Guias passo-a-passo
+- **Comunidade**: Fórum de usuários
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 Informações Legais
 
-## 🙏 Acknowledgments
+### Licenciamento
+- **Software Proprietário**: Código-fonte protegido por direitos autorais
+- **Licença de Uso**: Termos específicos por plano de assinatura
+- **Distribuição**: Proibida redistribuição não autorizada
 
-- Built with [React](https://reactjs.org/) and [Electron](https://electronjs.org/)
-- UI components from [Tailwind CSS](https://tailwindcss.com/)
-- Icons from [Lucide React](https://lucide.dev/)
-- Python backend powered by [Flask](https://flask.palletsprojects.com/)
+### Termos de Uso
+- **Uso Pessoal**: Licença para uso individual
+- **Responsabilidade**: Usuário responsável pelo uso adequado
+- **Conformidade**: Respeito aos termos de serviço do IMVU
 
-## 📞 Support
+## 🔗 Links Importantes
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/imvu-extractor/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/imvu-extractor/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/imvu-extractor/wiki)
+- **🌐 Site Oficial**: [Em breve]
+- **💬 Discord**: [Servidor da Comunidade]
+- **📚 Documentação**: [Wiki do Projeto]
+- **🎥 YouTube**: [Canal Oficial]
+- **📧 Suporte**: [Email de Contato]
+
+## 📊 Estatísticas do Projeto
+
+- **👥 Usuários Ativos**: Crescendo constantemente
+- **📦 Produtos Extraídos**: Milhares de downloads realizados
+- **⭐ Avaliação**: Feedback positivo da comunidade
+- **🔄 Atualizações**: Melhorias constantes baseadas no feedback
 
 ---
 
 <div align="center">
-  <strong>Made with ❤️ for the IMVU community</strong>
+  <strong>🎮 Desenvolvido com ❤️ para a comunidade IMVU</strong><br>
+  <em>Transformando a experiência de extração de produtos IMVU</em>
 </div>
+
+---
+
+> **Nota**: Este repositório contém apenas arquivos de configuração e documentação. O código-fonte completo é proprietário e não está disponível publicamente. Para adquirir uma licença, visite nosso site oficial.

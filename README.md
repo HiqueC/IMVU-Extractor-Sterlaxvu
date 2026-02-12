@@ -33,26 +33,21 @@ O IMVU Extractor é uma solução comercial completa que combina:
 - **Verificação Online**: Validação automática de licenças ativas
 - **Sincronização**: Dados sincronizados entre web e desktop
 
-## 🏗️ Arquitetura do Sistema
+##  Arquitetura do Sistema
 
 ### Componentes Principais
 
-1. **Aplicação Desktop** (`/src`)
+1. **Aplicação Desktop** (`Projeto`)
    - Interface React com Tailwind CSS
    - Integração Electron para funcionalidades nativas
    - Sistema de store com Zustand
 
-2. **Plataforma Web** (`/Site`)
+2. **Plataforma Web** (`Site`)
    - Next.js 14 com autenticação NextAuth
    - Dashboard de usuário e gerenciamento
    - Sistema de pagamentos Stripe
 
-3. **API Python** (`imvu_api.py`)
-   - Comunicação com APIs IMVU
-   - Processamento de produtos e downloads
-   - Sistema de autenticação e cookies
-
-4. **Sistema de Configuração**
+3. **Sistema de Configuração**
    - Configurações criptografadas
    - Gerenciamento seguro de credenciais
    - Templates de configuração
@@ -64,7 +59,7 @@ O IMVU Extractor é uma solução comercial completa que combina:
 O IMVU Extractor funciona através de uma arquitetura integrada que combina:
 
 #### 🌐 **Plataforma Web (Site)**
-- **Autenticação Discord**: Login seguro via OAuth2
+- **Autenticação Discord**: Login seguro via Discord
 - **Gerenciamento de Assinaturas**: Planos Gratuito, Mensal, Anual e Vitalício
 - **Processamento de Pagamentos**: Integração completa com Stripe
 - **Dashboard do Usuário**: Controle de licenças e configurações
@@ -80,7 +75,7 @@ O IMVU Extractor funciona através de uma arquitetura integrada que combina:
 
 #### 1. **Registro e Autenticação**
 ```
-Usuário → Discord OAuth → Site → Criação de Conta → Dashboard
+Usuário → Discord → Site → Criação de Conta → Dashboard
 ```
 
 #### 2. **Aquisição de Licença**
@@ -95,7 +90,7 @@ Download do App → Login Automático → Verificação Online → Acesso Libera
 
 #### 4. **Verificação Contínua**
 ```
-Extrator ↔ Site API ↔ Banco de Dados → Status em Tempo Real
+Extrator
 ```
 
 ### Para Usuários
@@ -157,12 +152,6 @@ O IMVU Extractor utiliza o GitHub como plataforma de distribuição segura para 
 - **Instalação Silenciosa**: Processo de atualização sem interrupção do usuário
 - **Rollback Automático**: Reversão automática em caso de falha na atualização
 
-#### 🛡️ **Segurança das Atualizações**
-- **Verificação de Integridade**: Checksums SHA-256 para validar downloads
-- **Autenticação de Origem**: Verificação de que a atualização vem do repositório oficial
-- **Licença Ativa**: Atualizações disponíveis apenas para usuários com licença válida
-- **Backup Automático**: Backup da versão anterior antes da atualização
-
 ### Processo de Atualização
 
 #### 1. **Detecção de Nova Versão**
@@ -220,12 +209,6 @@ App Restart → License Check → Feature Validation → Update Complete
 - **Migration Scripts**: Scripts automáticos para migração de dados
 - **Configuration Sync**: Sincronização de configurações entre versões
 
-#### ⏪ **Sistema de Rollback**
-- **Automatic Rollback**: Reversão automática em caso de falha
-- **Manual Rollback**: Opção de reverter manualmente via interface
-- **Version History**: Histórico das últimas 3 versões instaladas
-- **Data Preservation**: Preservação de dados do usuário durante rollback
-
 ## 📋 Requisitos do Sistema
 
 ### Mínimos
@@ -253,14 +236,6 @@ App Restart → License Check → Feature Validation → Update Complete
 - **Stripe**: Pagamentos processados com segurança PCI DSS
 - **Discord**: Autenticação via OAuth2 oficial
 
-## 📞 Suporte e Comunidade
-
-### Canais de Suporte
-- **📧 Email**: Suporte técnico via email
-- **💬 Discord**: Servidor oficial com comunidade ativa
-- **📚 Documentação**: Guias completos e tutoriais
-- **🎥 Vídeos**: Tutoriais em vídeo no YouTube
-
 ### Recursos Disponíveis
 - **Base de Conhecimento**: Artigos e soluções
 - **FAQ**: Perguntas frequentes
@@ -281,20 +256,11 @@ App Restart → License Check → Feature Validation → Update Complete
 
 ## 🔗 Links Importantes
 
-- **🌐 Site Oficial**: [Em breve]
-- **💬 Discord**: [Servidor da Comunidade]
-- **📚 Documentação**: [Wiki do Projeto]
+- **🌐 Site Oficial**: https://sterlaxvu.com/
+- **💬 Discord**: https://discord.gg/WwREnjeHGZ
 - **🎥 YouTube**: [Canal Oficial]
 - **📧 Suporte**: [Email de Contato]
 
-## 📊 Estatísticas do Projeto
-
-- **👥 Usuários Ativos**: Crescendo constantemente
-- **📦 Produtos Extraídos**: Milhares de downloads realizados
-- **⭐ Avaliação**: Feedback positivo da comunidade
-- **🔄 Atualizações**: Melhorias constantes baseadas no feedback
-
----
 
 <div align="center">
   <strong>🎮 Desenvolvido com ❤️ para a comunidade IMVU</strong><br>
